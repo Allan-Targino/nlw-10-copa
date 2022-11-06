@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box - Com isso o padding não vai aumentar o tamanho de algum elemento, só vai mudar o preechimeto desse elemento */
+    box-sizing: border-box;
+}
+
+/* root - Raíz do html */
+:root {
+    --backgound--img: url(/assets/bg-amarelo.svg);
+    --card--cor--background: #1D1C19;
+    --card--borda--titulo--cor: #746615;
+    --card--cor--primaria: #F7DD43;
+
+}
+
+body.azul {
+    --backgound--img: url(/assets/bg-azul.svg);
+    --card--cor--background: #202024;
+    --card--borda--titulo--cor: #338AF3;
+    --card--cor--primaria: #338AF3;
+}
+
+body.verde {
+    --backgound--img: url(/assets/bg-verde.svg );
+    --card--cor--background: #1A1F1B;
+    --card--borda--titulo--cor: #047C3F;
+    --card--cor--primaria: #047C3F;
+}
+
+body {
+    background-color: #121214;
+    background-image: var(--backgound--img);
+    background-repeat: no-repeat;
+    /* Mesma coisa que - background-position-y: top; background-position-x: center */
+    background-position: top center;
+    /* cover - Faz com que o background ocupe toda a tela */
+    background-size: cover;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+#app {
+    /* fit-content: a largura se adapta conforme a largura dos elementos que estão dentro */
+    width: fit-content;
+    /* Com as margens laterais autmáticas, os elementos são centralizados automáticamente */
+    margin: auto;
+    padding-top: 52px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 63px;
+}
+
+#cards {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: var(--card--cor--background);
+    border-bottom: 2px solid var(--card--cor--primaria);
+    border-radius: 6px;
+    padding: 32px 23px;
+    text-align: center;
+}
+
+.card h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    border: 1px solid var(--card--borda--titulo--cor);
+    border-radius: 6px;
+    padding: 8px 16px;
+    width: fit-content;
+    margin-inline: auto;
+    margin-bottom: 53px;
+
+    font-size: 24px;
+    font-weight: 700;
+    color: #F7DD43;
+}
+
+.card h2 span {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+}
+
+.card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 270px;
+}
+
+.card ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+/* li + li - Só vai personalizar o li que tiver um li anterior a ele */
+.card ul li+li {
+    padding-top: 24px;
+    border-top: 1px solid #323238;
+}
+
+.card ul li strong {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 125%;
+}
+
+.card h2:hover,
+.card ul li img:hover,
+.card ul li strong:hover {
+    transform: scale(1.1);
+}
+
+.card h2:hover,
+.card ul li img:hover,
+.card ul li strong:hover {
+    transition: transform 0.3s;
+}
+
+.card {
+    opacity: 0;
+    animation: aparecer 1s forwards
+        /* forwards - matém as opções do @keyframes aparecer 100% */
+    ;
+}
+
+/*  nth-child() - Serve para escolher qual card eu quero editar, que nesse caso é o segundo. Esse código ta de maneira dinâmica no arquivo do JavaScript
+.card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+*/
+
+@keyframes aparecer {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Isso é para dar responsividade para a tela, portanto se a tela tiver mais de 636px(largura de 2 cards em linha) de largura os cards vão ficar em linha, se não, vão ficar em coluna  */
+@media (min-width: 636px) {
+    #cards {
+        max-width: 680px;
+        flex-direction: row;
+        /* wrap - Serve para quando os cards atingirem a largura máxima eles irem para a linha de baixo */
+        flex-wrap: wrap;
+        gap: 38px;
+    }
+}
