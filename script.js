@@ -1,9 +1,9 @@
 function criarJogo(time1, horas, time2) {
     return `
         <li>
-            <img src="/assets/icon-${time1}.svg" alt="Bandeira da Suiça">
+            <img src="assets/icon-${time1}.svg" alt="Bandeira da Suiça">
             <strong>${horas}</strong>
-            <img src="/assets/icon-${time2}.svg" alt="Bandeira de Camarões">
+            <img src="assets/icon-${time2}.svg" alt="Bandeira de Camarões">
         </li>
     `
 }
