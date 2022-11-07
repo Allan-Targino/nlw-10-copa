@@ -7,7 +7,7 @@
 
 /* root - Raíz do html */
 :root {
-    --backgound--img: url(/assets/bg-amarelo.svg);
+    --backgound--img: url(assets/bg-amarelo.svg);
     --card--cor--background: #1D1C19;
     --card--borda--titulo--cor: #746615;
     --card--cor--primaria: #F7DD43;
@@ -15,14 +15,14 @@
 }
 
 body.azul {
-    --backgound--img: url(/assets/bg-azul.svg);
+    --backgound--img: url(assets/bg-azul.svg);
     --card--cor--background: #202024;
     --card--borda--titulo--cor: #338AF3;
     --card--cor--primaria: #338AF3;
 }
 
 body.verde {
-    --backgound--img: url(/assets/bg-verde.svg );
+    --backgound--img: url(assets/bg-verde.svg );
     --card--cor--background: #1A1F1B;
     --card--borda--titulo--cor: #047C3F;
     --card--cor--primaria: #047C3F;
